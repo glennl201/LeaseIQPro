@@ -1,0 +1,32 @@
+# LeaseIQ Pro
+
+> Deterministic lease finance MCP server for AI agents. Excel-verified commercial equipment lease math, reverse solvers, amortization schedules, and consumer auto lease/loan calculations.
+
+## Links
+
+- Marketplace: https://mcpize.com/mcp/leaseiq-pro
+- MCP endpoint: https://leaseiq-pro.mcpize.run/mcp
+- Product: https://leaseiqpro.com
+- GitHub: https://github.com/glennl201/LeaseIQPro
+- Install guide: https://github.com/glennl201/LeaseIQPro/blob/main/docs/install.md
+- Tool reference: https://github.com/glennl201/LeaseIQPro/blob/main/docs/tools.md
+- Agent card: https://github.com/glennl201/LeaseIQPro/blob/main/AGENTS.md
+- Pricing config: https://github.com/glennl201/LeaseIQPro/blob/main/mcpize.yaml
+
+## Tools
+
+- `calculate_lease` — commercial equipment lease payment (level, balloon, step, skip, IO, custom)
+- `solve_lease_structure` — reverse solve Rate, Term, ResidualValue, PresentValue, Commission
+- `generate_amortization_schedule` — full period schedule with interest/principal splits
+- `calculate_auto_lease` — money factor, residual, tax methods, MSD, zero drive-off
+- `calculate_auto_loan` — auto loan payment and lease-vs-buy totals
+
+## Access
+
+- Free Trial: 50 calls/month at https://mcpize.com/mcp/leaseiq-pro (no credit card)
+- x402 pay-per-call: USDC on Base, $0.01–$0.10 per tool (HTTP 402 challenge)
+- Professional: $19/month (1000 calls included)
+
+## Keywords
+
+lease calculator, equipment finance, amortization, yield solver, money factor, auto lease, MCP, Model Context Protocol, MCPize, AI agent finance tools, T-Value alternative for agents

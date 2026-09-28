@@ -1,0 +1,96 @@
+{
+  "description": "Sample JSON-RPC tool calls against https://leaseiq-pro.mcpize.run/mcp",
+  "initialize": {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "initialize",
+    "params": {
+      "protocolVersion": "2025-03-26",
+      "capabilities": {},
+      "clientInfo": { "name": "leaseiq-example", "version": "1.0.0" }
+    }
+  },
+  "examples": [
+    {
+      "name": "calculate_lease",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 2,
+        "method": "tools/call",
+        "params": {
+          "name": "calculate_lease",
+          "arguments": {
+            "equipmentCost": 150000,
+            "leaseTerm": 60,
+            "interestRate": 7.5,
+            "residualPercent": 10,
+            "paymentTiming": "Advance"
+          }
+        }
+      }
+    },
+    {
+      "name": "solve_lease_structure",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 3,
+        "method": "tools/call",
+        "params": {
+          "name": "solve_lease_structure",
+          "arguments": {
+            "solveFor": "Rate",
+            "targetPayment": 2850,
+            "equipmentCost": 150000,
+            "leaseTerm": 60,
+            "residualValue": 15000
+          }
+        }
+      }
+    },
+    {
+      "name": "calculate_auto_lease",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 4,
+        "method": "tools/call",
+        "params": {
+          "name": "calculate_auto_lease",
+          "arguments": {
+            "msrp": 45000,
+            "sellingPrice": 42500,
+            "term": 36,
+            "moneyFactor": 0.00225,
+            "residualPercent": 58,
+            "taxRate": 6.625,
+            "taxMethod": "Monthly",
+            "acquisitionFee": 895,
+            "capitalizeFees": true,
+            "msdCount": 2
+          }
+        }
+      }
+    },
+    {
+      "name": "calculate_auto_loan",
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 5,
+        "method": "tools/call",
+        "params": {
+          "name": "calculate_auto_loan",
+          "arguments": {
+            "vehiclePrice": 32000,
+            "purchaseMethod": "finance",
+            "downPayment": 2000,
+            "term": 60,
+            "rate": 5.9
+          }
+        }
+      }
+    }
+  ],
+  "notes": [
+    "Send Authorization: Bearer <MCPIZE_API_KEY> or settle the HTTP 402 x402 challenge.",
+    "Accept: application/json, text/event-stream"
+  ]
+}

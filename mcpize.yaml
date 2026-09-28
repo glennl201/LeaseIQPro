@@ -1,0 +1,71 @@
+# LeaseIQ Pro — mcpize.yaml
+
+# Source of truth for marketplace deploy metadata and x402 pay-per-call pricing.
+# Keep this file in sync with the MCPize dashboard Payments tab.
+# Docs: https://mcpize.com/docs/monetization
+
+name: leaseiq-pro
+title: LeaseIQ Pro
+description: >
+  Deterministic lease finance calculation engine for AI agents. Commercial
+  equipment lease structuring (level, balloon, step, custom, interest-only,
+  skip/seasonal payments), Newton-Raphson reverse solvers for rate, term,
+  residual value and present value, full amortization schedules, and exact
+  consumer auto lease math (money factor, state tax methods, MSD economics).
+  Every result is regression-tested against Excel-verified values. Powered by
+  leaseiqpro.com.
+
+website: https://leaseiqpro.com
+homepage: https://mcpize.com/mcp/leaseiq-pro
+github: https://github.com/glennl201/LeaseIQPro
+logo: https://leaseiqpro.com/leaseiqpro-logo-512.jpeg
+category: finance
+
+tags:
+  - lease-calculator
+  - equipment-finance
+  - amortization
+  - yield-solver
+  - auto-lease
+  - money-factor
+  - finance
+  - lease-vs-buy
+  - mcp
+  - deterministic-math
+
+seo:
+  title: "LeaseIQ Pro MCP Server: Exact Lease Finance Calculations for AI Agents"
+  description: >
+    MCP server for lease finance: commercial equipment lease structuring,
+    rate/term/residual reverse solvers, amortization schedules, and consumer
+    auto lease math. Deterministic, Excel-verified results for AI agents.
+
+runtime: typescript
+transport: streamable_http
+mcp_path: /mcp
+
+# Human subscription plans live in the MCPize dashboard.
+# Recommended funnel: Free Trial (50 calls) → Pay As You Go / Professional.
+# Agent-native path: x402 below (no signup).
+
+pricing:
+  protocol: x402
+  network: base
+  recipient: "0x690DBdE22a97b30B7F4bb32cd2DF8B5f236A4f17"
+  asset: usdc
+  tools:
+    - name: calculate_lease
+      price: "0.03"
+      description: Commercial equipment lease payment calculation (any structure)
+    - name: solve_lease_structure
+      price: "0.10"
+      description: Reverse solver for rate, term, residual, present value, or commission
+    - name: generate_amortization_schedule
+      price: "0.08"
+      description: Full period-by-period amortization schedule with totals
+    - name: calculate_auto_lease
+      price: "0.03"
+      description: Consumer auto lease payment, drive-off, MSD, and buyout math
+    - name: calculate_auto_loan
+      price: "0.01"
+      description: Auto loan payment, total interest, and total cost

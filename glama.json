@@ -1,0 +1,26 @@
+{
+  "$schema": "https://glama.ai/mcp/schemas/server.json",
+  "name": "LeaseIQ Pro",
+  "description": "Deterministic lease finance MCP: commercial equipment structuring, reverse solvers, amortization, and consumer auto lease/loan math.",
+  "category": "finance",
+  "homepage": "https://mcpize.com/mcp/leaseiq-pro",
+  "documentation": "https://github.com/glennl201/LeaseIQPro/blob/main/docs/install.md",
+  "maintainer": {
+    "name": "Glenn Les",
+    "email": "support@leaseiqpro.com",
+    "url": "https://leaseiqpro.com"
+  },
+  "keywords": [
+    "lease",
+    "equipment-finance",
+    "amortization",
+    "auto-lease",
+    "money-factor",
+    "mcp",
+    "finance"
+  ],
+  "remote": {
+    "url": "https://leaseiq-pro.mcpize.run/mcp",
+    "transport": "streamable-http"
+  }
+}

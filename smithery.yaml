@@ -1,0 +1,29 @@
+# Smithery metadata for LeaseIQ Pro (remote MCP via MCPize)
+# https://smithery.ai
+
+name: leaseiq-pro
+title: LeaseIQ Pro
+description: >
+  Deterministic lease finance calculations for AI agents. Commercial equipment
+  lease structuring, reverse rate/term/residual solvers, amortization schedules,
+  and consumer auto lease/loan math.
+
+homepage: https://mcpize.com/mcp/leaseiq-pro
+repository: https://github.com/glennl201/LeaseIQPro
+
+runtime: remote
+transport: streamable-http
+url: https://leaseiq-pro.mcpize.run/mcp
+
+headers:
+  Authorization:
+    description: MCPize API key (Bearer). Free Trial: 50 calls/month, no credit card.
+    required: false
+    secret: true
+
+tags:
+  - finance
+  - lease
+  - equipment-finance
+  - amortization
+  - auto-lease

@@ -1,8 +1,10 @@
 # LeaseIQ Pro
 
+[![MCPize](https://mcpize.com/badge/@glennl201/leaseiq-pro)](https://mcpize.com/mcp/leaseiq-pro)
+
 **Deterministic lease finance calculations for AI agents.**
 
-LLMs cannot reliably do compounding interest, Newton-Raphson solvers, or amortization by hand. LeaseIQ Pro is an MCP server that returns Excel-verified lease math to the penny: commercial equipment structures, reverse solvers, full schedules, and consumer auto lease / loan math.
+LLMs cannot reliably do compounding interest, Newton-Raphson solvers, or amortization by hand. LeaseIQ Pro is an MCP server that returns Excel-verified lease math to the penny: commercial equipment structures, reverse solvers, full schedules, and consumer auto lease / loan math. Results are Excel-verified.
 
 | | |
 | --- | --- |
@@ -10,6 +12,14 @@ LLMs cannot reliably do compounding interest, Newton-Raphson solvers, or amortiz
 | **MCP endpoint** | `https://leaseiq-pro.mcpize.run/mcp` |
 | **Product engine** | [leaseiqpro.com](https://leaseiqpro.com) |
 | **Category** | Finance / equipment leasing / auto lease |
+
+## Connect via MCPize
+
+```bash
+npx -y mcpize connect @glennl201/leaseiq-pro --client cursor
+```
+
+Or start Free Trial and install manually: [mcpize.com/mcp/leaseiq-pro](https://mcpize.com/mcp/leaseiq-pro)
 
 ## Why agents use this
 

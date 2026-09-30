@@ -109,20 +109,36 @@ The agent should call `calculate_lease`, then `solve_lease_structure` with `solv
 - Agent install + capability card: [AGENTS.md](./AGENTS.md)
 - Marketplace listing SEO title: *LeaseIQ Pro MCP Server: Exact Lease Finance Calculations for AI Agents*
 
+## Agent landing page
+
+Static install page in [`site/`](./site/) (also routed at `/mcp` and `/agents` via `vercel.json`). Deploy this repo to Vercel, then point a subdomain (for example `mcp.leaseiqpro.com`) at it, or embed the same copy on leaseiqpro.com.
+
+Registry metadata for directory crawlers:
+
+- [`server.json`](./server.json) — Official MCP Registry remote descriptor
+- [`glama.json`](./glama.json) — Glama indexing hints
+- [`smithery.yaml`](./smithery.yaml) — Smithery remote metadata
+
+Publish to the Official MCP Registry (propagates to PulseMCP / VS Code):
+
+```bash
+npx mcp-publisher login   # GitHub OAuth as glennl201
+npx mcp-publisher publish
+```
+
 ## Distribution checklist (owner)
 
-Connecting MCPize alone does not create demand. Use this checklist to unblock traffic:
+Connecting MCPize alone does not create demand. **Repo discovery assets are in this PR.** These dashboard / DNS steps still need your login:
 
-1. **Surface the Free Trial** on the MCPize listing card (marketplace currently leads with $19/month; Free Trial exists but is easy to miss).
-2. **Set listing `website`** to `https://leaseiqpro.com` and **`github_url`** to this repo in the MCPize dashboard.
-3. **Enable MCPize documentation** on the listing (`documentation_enabled`).
-4. **Add a real `/mcp` page on leaseiqpro.com** (today `/mcp` serves the marketing SPA homepage with no install path).
+1. **Surface the Free Trial** on the MCPize listing card (marketplace currently leads with $19/month; Free Trial exists but is easy to miss). Set Free Trial as recommended/featured.
+2. **Set listing `website`** to the Vercel MCP landing URL (or `https://leaseiqpro.com/mcp` once that page is real) and **`github_url`** to `https://github.com/glennl201/LeaseIQPro`.
+3. **Enable MCPize documentation** on the listing (`documentation_enabled`) and set `is_free` / free-filter visibility if the dashboard allows it.
+4. **On leaseiqpro.com**: either ship a real `/mcp` route, or CNAME `mcp.leaseiqpro.com` to the Vercel deploy of this repo. Add the URL to the sitemap.
 5. **Link this public repo** from leaseiqpro.com footer, blog CTAs, and commercial/auto product pages.
-6. **Set GitHub repo About**: description, homepage `https://mcpize.com/mcp/leaseiq-pro`, topics (`mcp`, `lease-calculator`, `equipment-finance`, `mcpize`, `ai-agents`).
-7. **Submit to MCP directories**: PulseMCP, Glama, Smithery, awesome-mcp lists, with Free Trial as the primary CTA.
-8. **Publish 2–3 agent demos** (Cursor / Claude): equipment quote reverse-solve, auto lease forensic check, lease-vs-buy. Embed GIF or short video on the listing.
+6. **Set GitHub repo About** (Settings → General): description, homepage `https://mcpize.com/mcp/leaseiq-pro`, topics (`mcp`, `model-context-protocol`, `lease-calculator`, `equipment-finance`, `mcpize`, `ai-agents`). The GitHub App token here cannot patch About fields.
+7. **Publish `server.json`** with `mcp-publisher`, then claim/submit Glama + Smithery + PulseMCP using Free Trial as the CTA.
+8. **Publish 2–3 agent demos** (Cursor / Claude): equipment quote reverse-solve, auto lease forensic check, lease-vs-buy.
 9. **Ask for Verified / featured** once health checks are green (listing currently shows `health_status: unknown`).
-10. **Keep `is_free` discoverable**: Free Trial should make the server appear in free/trial marketplace filters where possible.
 
 ## Related
 

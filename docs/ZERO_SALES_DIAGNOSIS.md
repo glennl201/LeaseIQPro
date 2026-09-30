@@ -56,21 +56,31 @@ MCPize has 1000+ servers. Even category leaders sit around tens of subscribers, 
 
 leaseiqpro.com is optimized for commercial originators and auto forensic users. Robots.txt and sitemap promote `/commercial`, `/auto`, `/blog` — not MCP install. AI crawlers are allowed, but they only see the human SaaS story.
 
-## What this PR does
+## Status: what is fixed vs still blocked
 
-Ships public discovery assets agents and humans can index:
+### Done in this repo / PR
 
 - Rich README with Free Trial → install → x402 path
-- `mcpize.yaml` (website/github/tags/x402 prices)
-- `AGENTS.md` + `llms.txt` for agent/crawler consumption
-- Install + tool docs and copy-paste prompts
+- `mcpize.yaml`, `AGENTS.md`, `llms.txt`, install/tool docs, example prompts
+- Official Registry `server.json`, `glama.json`, `smithery.yaml`
+- Static MCP landing page (`site/`) + `vercel.json` routes for `/mcp` and `/agents`
 
-## What you still must do in dashboards (cannot be done from this repo)
+### Attempted, blocked by access
 
-1. MCPize listing: set **website** + **github_url**, enable **documentation**, confirm Free Trial is the primary CTA, request health check / Verified.
-2. leaseiqpro.com: ship a real `/mcp` (or `/agents`) page linking Free Trial + install configs; add sitemap entry.
-3. GitHub About on this repo: description, homepage `https://mcpize.com/mcp/leaseiq-pro`, topics.
-4. Submit PulseMCP / Glama / Smithery / awesome-mcp with Free Trial CTA.
-5. Publish 2–3 short demos aimed at brokers and auto buyers using Cursor/Claude.
+| Action | Result |
+| --- | --- |
+| PATCH MCPize `website` / `github_url` / `documentation_enabled` / `is_free` | Anon API returns no rows (RLS). Needs your MCPize dashboard login. |
+| PATCH Free Trial plan to `featured` / `is_recommended` | Same RLS block. |
+| GitHub About description / homepage / topics | GitHub App token returns **403**. Needs your GitHub Settings UI. |
+| Edit leaseiqpro.com `/mcp` | Product app is not in this repo; FinanceTeam Vercel has no LeaseIQ project. |
+| Directory submit forms (PulseMCP) | Bot-blocked / needs human OAuth. |
 
-Until (1) and (2) land, marketplace SEO alone will not produce transactions.
+### What you still must click
+
+1. MCPize listing: set **website** + **github_url**, enable **documentation**, make **Free Trial** the lead/recommended plan, request health check / Verified.
+2. Deploy or connect this repo’s `site/` on Vercel; optionally CNAME `mcp.leaseiqpro.com`. Or ship `/mcp` inside the main product app.
+3. GitHub About on this repo: description, homepage, topics.
+4. `npx mcp-publisher login && npx mcp-publisher publish`, then claim Glama / Smithery.
+5. Publish 2–3 short Cursor/Claude demos.
+
+Until the MCPize listing fields and a real public `/mcp` URL are live, marketplace SEO alone will not produce transactions.

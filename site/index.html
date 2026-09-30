@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LeaseIQ Pro MCP | Exact Lease Math for AI Agents</title>
+  <meta name="description" content="Install the LeaseIQ Pro MCP server. Free Trial: 50 calculation calls per month. Deterministic commercial equipment and auto lease math for Cursor, Claude, and agents." />
+  <link rel="canonical" href="https://github.com/glennl201/LeaseIQPro" />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:title" content="LeaseIQ Pro MCP | Exact Lease Math for AI Agents" />
+  <meta property="og:description" content="Free Trial install for Cursor and Claude. Excel-verified lease finance tools for AI agents." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://leaseiqpro.com/LeaseIQ_Icon_WithText_HighRes.png" />
+  <link rel="icon" type="image/jpeg" href="https://leaseiqpro.com/leaseiqpro-logo-512.jpeg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #07131f;
+      --foam: #e8f2f0;
+      --mist: #9db7b2;
+      --signal: #1fa97a;
+      --signal-deep: #0e7a56;
+      --amber: #d4a017;
+      --line: rgba(232, 242, 240, 0.14);
+      --panel: rgba(7, 19, 31, 0.55);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    body {
+      font-family: "Manrope", sans-serif;
+      color: var(--foam);
+      background: var(--ink);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    .sky {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(900px 500px at 12% 18%, rgba(31, 169, 122, 0.22), transparent 60%),
+        radial-gradient(700px 420px at 88% 10%, rgba(212, 160, 23, 0.12), transparent 55%),
+        linear-gradient(165deg, #041018 0%, #0a1c2c 48%, #07131f 100%);
+    }
+    .sky::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.35;
+      background-image:
+        linear-gradient(rgba(232, 242, 240, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(232, 242, 240, 0.04) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: radial-gradient(ellipse at 50% 30%, #000 20%, transparent 75%);
+      animation: drift 28s linear infinite;
+    }
+
+    @keyframes drift {
+      from { transform: translate3d(0, 0, 0); }
+      to { transform: translate3d(-36px, 36px, 0); }
+    }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse-line {
+      0%, 100% { opacity: 0.35; }
+      50% { opacity: 0.9; }
+    }
+
+    .shell {
+      width: min(1080px, calc(100% - 2.5rem));
+      margin: 0 auto;
+      padding: 1.25rem 0 4rem;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      animation: rise 0.7s ease both;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      text-decoration: none;
+      color: var(--foam);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .brand img {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      font-size: 0.92rem;
+    }
+    .nav-links a {
+      color: var(--mist);
+      text-decoration: none;
+    }
+    .nav-links a:hover { color: var(--foam); }
+
+    .hero {
+      min-height: calc(100vh - 5.5rem);
+      display: grid;
+      align-content: center;
+      gap: 1.25rem;
+      padding: 3.5rem 0 2rem;
+      max-width: 760px;
+    }
+    .hero > * {
+      animation: rise 0.8s ease both;
+    }
+    .hero > *:nth-child(1) { animation-delay: 0.05s; }
+    .hero > *:nth-child(2) { animation-delay: 0.15s; }
+    .hero > *:nth-child(3) { animation-delay: 0.25s; }
+    .hero > *:nth-child(4) { animation-delay: 0.35s; }
+    .hero > *:nth-child(5) { animation-delay: 0.45s; }
+
+    .brand-mark {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: clamp(3.2rem, 8vw, 5.4rem);
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+    .brand-mark span {
+      display: block;
+      color: var(--signal);
+      font-style: italic;
+      font-size: 0.42em;
+      letter-spacing: 0.04em;
+      margin-top: 0.35rem;
+    }
+
+    h1 {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-weight: 400;
+      font-size: clamp(1.7rem, 3.6vw, 2.45rem);
+      line-height: 1.15;
+      margin: 0.4rem 0 0;
+      max-width: 18ch;
+    }
+
+    .lede {
+      margin: 0;
+      color: var(--mist);
+      font-size: 1.05rem;
+      max-width: 46ch;
+    }
+
+    .cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+    .btn {
+      appearance: none;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      padding: 0.85rem 1.25rem;
+      font: inherit;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary {
+      background: var(--signal);
+      color: #03140d;
+    }
+    .btn-primary:hover { background: #27c48f; }
+    .btn-ghost {
+      background: transparent;
+      border-color: var(--line);
+      color: var(--foam);
+    }
+    .btn-ghost:hover { border-color: var(--mist); }
+
+    .endpoint {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-top: 0.25rem;
+      padding: 0.55rem 0.8rem;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--panel);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.82rem;
+      color: #cfe7df;
+      max-width: 100%;
+      overflow-x: auto;
+    }
+    .endpoint i {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--signal);
+      box-shadow: 0 0 0 0 rgba(31, 169, 122, 0.55);
+      animation: pulse-line 2.2s ease-in-out infinite;
+      flex: 0 0 auto;
+    }
+
+    section {
+      padding: 3.5rem 0 0;
+      border-top: 1px solid var(--line);
+      margin-top: 2rem;
+      animation: rise 0.9s ease both;
+      animation-delay: 0.5s;
+    }
+    section h2 {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-weight: 400;
+      font-size: clamp(1.6rem, 3vw, 2rem);
+      margin: 0 0 0.5rem;
+    }
+    section p.support {
+      margin: 0 0 1.25rem;
+      color: var(--mist);
+      max-width: 52ch;
+    }
+
+    pre {
+      margin: 0;
+      padding: 1rem 1.1rem;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(2, 10, 16, 0.72);
+      font-size: 0.82rem;
+      line-height: 1.45;
+      color: #d7ebe4;
+    }
+
+    .steps {
+      display: grid;
+      gap: 1rem;
+      margin: 1.25rem 0 1.5rem;
+    }
+    .steps ol {
+      margin: 0;
+      padding-left: 1.2rem;
+      color: var(--foam);
+    }
+    .steps a { color: var(--signal); }
+
+    .tools {
+      display: grid;
+      gap: 0.65rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .tools li {
+      display: grid;
+      grid-template-columns: minmax(10rem, 15rem) 1fr;
+      gap: 0.75rem;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 0.95rem;
+    }
+    .tools code {
+      color: var(--amber);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.85rem;
+    }
+    .tools span { color: var(--mist); }
+
+    footer {
+      margin-top: 3.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--line);
+      color: var(--mist);
+      font-size: 0.88rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.25rem;
+      justify-content: space-between;
+    }
+    footer a { color: var(--foam); }
+
+    @media (max-width: 720px) {
+      .nav-links .hide-sm { display: none; }
+      .tools li { grid-template-columns: 1fr; gap: 0.2rem; }
+      .hero { min-height: auto; padding-top: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sky" aria-hidden="true"></div>
+  <div class="shell">
+    <nav>
+      <a class="brand" href="https://leaseiqpro.com">
+        <img src="https://leaseiqpro.com/leaseiqpro-logo-512.jpeg" alt="" width="36" height="36" />
+        LeaseIQ Pro
+      </a>
+      <div class="nav-links">
+        <a class="hide-sm" href="https://github.com/glennl201/LeaseIQPro">GitHub</a>
+        <a class="hide-sm" href="https://leaseiqpro.com">Product</a>
+        <a href="https://mcpize.com/mcp/leaseiq-pro">MCPize</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <p class="brand-mark">LeaseIQ Pro<span>MCP for AI agents</span></p>
+      <h1>Exact lease math. Not LLM guesses.</h1>
+      <p class="lede">
+        Deterministic commercial equipment and auto lease calculations for Cursor, Claude, and autonomous agents. Free Trial: 50 calls a month, no credit card.
+      </p>
+      <div class="cta">
+        <a class="btn btn-primary" href="https://mcpize.com/mcp/leaseiq-pro">Start Free Trial</a>
+        <a class="btn btn-ghost" href="#install">Install in Cursor</a>
+      </div>
+      <div class="endpoint" title="Live MCP endpoint">
+        <i></i>
+        https://leaseiq-pro.mcpize.run/mcp
+      </div>
+    </header>
+
+    <section id="install">
+      <h2>Install in one config</h2>
+      <p class="support">Get a Free Trial key on MCPize, then paste this into Cursor <code>~/.cursor/mcp.json</code>.</p>
+      <div class="steps">
+        <ol>
+          <li>Open <a href="https://mcpize.com/mcp/leaseiq-pro">mcpize.com/mcp/leaseiq-pro</a> and choose <strong>Free Trial</strong>.</li>
+          <li>Copy your API key.</li>
+          <li>Add the block below and restart Cursor.</li>
+        </ol>
+      </div>
+      <pre>{
+  "mcpServers": {
+    "leaseiq-pro": {
+      "url": "https://leaseiq-pro.mcpize.run/mcp",
+      "headers": {
+        "Authorization": "Bearer YOUR_MCPIZE_API_KEY"
+      }
+    }
+  }
+}</pre>
+    </section>
+
+    <section>
+      <h2>Tools agents call</h2>
+      <p class="support">Use these instead of asking the model to do compounding interest by hand.</p>
+      <ul class="tools">
+        <li><code>calculate_lease</code><span>Commercial equipment payment structures</span></li>
+        <li><code>solve_lease_structure</code><span>Reverse solve rate, term, residual, PV</span></li>
+        <li><code>generate_amortization_schedule</code><span>Full period schedule and payoff</span></li>
+        <li><code>calculate_auto_lease</code><span>Money factor, tax methods, MSD, drive-off</span></li>
+        <li><code>calculate_auto_loan</code><span>Loan math for lease-versus-buy</span></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Pricing that agents can start on</h2>
+      <p class="support">Free Trial first. Then Pay As You Go, Professional ($19/mo), or x402 USDC pay-per-call with no signup.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="https://mcpize.com/mcp/leaseiq-pro">Get Free Trial key</a>
+        <a class="btn btn-ghost" href="https://github.com/glennl201/LeaseIQPro/blob/main/docs/install.md">Full install docs</a>
+      </div>
+    </section>
+
+    <footer>
+      <span>Powered by the calculation engine at <a href="https://leaseiqpro.com">leaseiqpro.com</a></span>
+      <span>
+        <a href="https://github.com/glennl201/LeaseIQPro">Repo</a> ·
+        <a href="https://mcpize.com/mcp/leaseiq-pro">Marketplace</a> ·
+        <a href="mailto:support@leaseiqpro.com">support@leaseiqpro.com</a>
+      </span>
+    </footer>
+  </div>
+</body>
+</html>

@@ -22,5 +22,8 @@
   "remote": {
     "url": "https://leaseiq-pro.mcpize.run/mcp",
     "transport": "streamable-http"
-  }
+  },
+  "maintainers": [
+    "glennl201"
+  ]
 }

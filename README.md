@@ -1,6 +1,6 @@
 # LeaseIQ Pro
 
-[![MCPize](https://mcpize.com/badge/@glennl201/leaseiq-pro)](https://mcpize.com/mcp/leaseiq-pro)
+[![MCPize](https://mcpize.com/badge/@glennl201/leaseiq-pro)](https://mcpize.com/mcp/leaseiq-pro) [![mcptry](https://mcptry.com/badge/io.github.glennl201/leaseiq-pro)](https://mcptry.com/servers/io.github.glennl201/leaseiq-pro)
 
 **Deterministic lease finance calculations for AI agents.**
 
